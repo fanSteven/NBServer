@@ -14,4 +14,8 @@ public interface INB_User {
 	public int updateUserInfo(int user_id, NB_User nb_User);
 
 	public int deleteUserStatus(Map<String, Integer> params);
+
+	public String checkEmail(String email);
+
+	public String checkUserName(String user_Name);
 }
