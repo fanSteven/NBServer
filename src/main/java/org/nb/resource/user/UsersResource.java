@@ -18,19 +18,13 @@ import org.nb.tool.OperateLog;
 
 @Path("/users")
 public class UsersResource extends ResHelper {
-	private static final Logger logger = Logger.getLogger(UsersResource.class);
-
-	private static INB_User inb_User = null;
-	static {
-		inb_User = session.getMapper(INB_User.class);
-	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	public OperateLog register(NB_User user) {
 		OperateLog operate = new OperateLog();
 		try {
-			UnLegalUser unLegalUser = checkUser(user); 
+			UnLegalUser unLegalUser = checkUser(user);
 			if (unLegalUser.equals(UnLegalUser.noerror)) {
 
 				user.setStatus(UserStatus.noactivity.getIndex());

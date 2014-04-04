@@ -15,6 +15,12 @@
 		NB_User
 		where email = #{email} and password = #{password}
 	</select>
+	<select id="checkEmail" parameterType="String">
+		select ID from NB_User where email = #{email}
+	</select>
+	<select id="checkUserName" parameterType="String">
+		select ID from NB_User where email = #{user_Name}
+	</select>
 	<insert id="register" parameterType="NB_User">
 		insert into
 		nb_user(email,name,password,status,registertime) values
