@@ -6,7 +6,9 @@ import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 import org.nb.mybatis.model.INB_User;
@@ -25,6 +27,7 @@ public class Active extends ResHelper {
 	}
 
 	@GET
+	@Produces(MediaType.TEXT_HTML)
 	public OperateLog active(@QueryParam("u") String u,
 			@QueryParam("p") String p) {
 		OperateLog operateLog = new OperateLog();

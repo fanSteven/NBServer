@@ -15,10 +15,10 @@
 		NB_User
 		where email = #{email} and password = #{password}
 	</select>
-	<select id="checkEmail" parameterType="String">
+	<select id="checkEmail" parameterType="String" resultType="Integer">
 		select ID from NB_User where email = #{email}
 	</select>
-	<select id="checkUserName" parameterType="String">
+	<select id="checkUserName" parameterType="String" resultType="Integer">
 		select ID from NB_User where email = #{user_Name}
 	</select>
 	<insert id="register" parameterType="NB_User">

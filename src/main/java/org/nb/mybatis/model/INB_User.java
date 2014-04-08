@@ -15,7 +15,7 @@ public interface INB_User {
 
 	public int deleteUserStatus(Map<String, Integer> params);
 
-	public String checkEmail(String email);
+	public Integer checkEmail(String email);
 
-	public String checkUserName(String user_Name);
+	public Integer checkUserName(String user_Name);
 }

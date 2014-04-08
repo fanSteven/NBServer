@@ -7,10 +7,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.log4j.Logger;
 import org.nb.Encryp.EncrypSHA;
 import org.nb.mail.Mail;
-import org.nb.mybatis.model.INB_User;
 import org.nb.mybatis.model.NB_User;
 import org.nb.reshelper.ResHelper;
 import org.nb.tool.Constant;
