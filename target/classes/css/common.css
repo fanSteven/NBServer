@@ -1,0 +1,76 @@
+.reg-login-switch
+{
+	position: fixed;
+	_position: absolute;
+	left: 13px;
+	top: 20px;
+}
+.reg-login-switch a
+{
+	display: block;
+	width: 93px;
+	height: 44px; 
+	outline: none; 
+	background: url(../images/login-regin.png) no-repeat;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #E4E8EC;
+}
+.sample_input
+{
+    width: 300px;
+    padding: 10px;
+    padding-left: 10px;
+    line-height: 32px;
+    border: 0;
+    outline: none;
+    font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+    position: absolute;
+    font-size: 16px;
+    color: #8F8F8F;
+    z-index: 20;
+    background: url(../images/page.png) no-repeat -210px -52px;
+    _background-image: url(../images/page1.png);
+}
+
+
+.inputWrap > div,.inputWrapLogin >div
+{
+    height: 52px;
+    margin-bottom: 3px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.inputWrap
+{
+    width: 40%;
+    margin-top: 10%;
+    margin-left: 30%;
+    border: 1px solid rgb(12, 4, 114);
+}
+
+.inputWrapLogin
+{
+    width: 40%;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+
+#to_login
+{
+    background-position: 0 0;
+}
+
+.inputWrap label
+{
+    display: block;
+    float: left;
+    margin: 18px 0 0 15px;
+	width:65px;
+
+}

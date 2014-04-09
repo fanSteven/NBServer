@@ -1,0 +1,42 @@
+﻿<html>
+<head>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/kendo.web.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <link href="css/login.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/nb.css" rel="stylesheet"/>
+    <link href="css/common.css" rel="stylesheet"/>
+    <title>登录</title>
+</head>
+<body>
+	<div class="reg-login-switch">
+		<a class="reg_or_login" onclick="to_regist();" id="to_register"></a>
+	</div>	
+    <div class="wrap">
+        <section class="loginForm"> 
+      <header>
+        <h1>生活   --从吹牛开始</h1> 
+      </header>
+      <div class="loginForm_content">
+          <div class="inputWrapLogin">
+              <div>
+                  <span class="user-icon"></span>
+                  <input id="user_name" class="sample_input" />
+              </div>
+              <div>
+                  <span class="password-icon"></span>
+                  <input id="user_pasword" type="password" class="sample_input" />
+              </div>
+          </div>
+          <div style="margin-top: 10px;float: right;margin-bottom: 20px;width: 100%;">
+              <button type="button" class="btn btn-primary" id="do_login"> 提交</button>
+          </div>
+      </div>
+    </section>
+    </div>
+</body>
+</html>

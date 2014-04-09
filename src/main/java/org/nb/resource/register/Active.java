@@ -1,5 +1,11 @@
 package org.nb.resource.register;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +20,6 @@ import org.apache.log4j.Logger;
 import org.nb.mybatis.model.INB_User;
 import org.nb.mybatis.model.NB_User;
 import org.nb.reshelper.ResHelper;
-import org.nb.tool.Constant;
-import org.nb.tool.OperateLog;
 
 @Path("register/email/active")
 public class Active extends ResHelper {
@@ -28,9 +32,33 @@ public class Active extends ResHelper {
 
 	@GET
 	@Produces(MediaType.TEXT_HTML)
-	public OperateLog active(@QueryParam("u") String u,
-			@QueryParam("p") String p) {
-		OperateLog operateLog = new OperateLog();
+	public String active(@QueryParam("u") String u, @QueryParam("p") String p) {
+		String htmlStr = "";
+		String tempStr = "";
+		FileInputStream is = null;
+		try {
+			String path = Active.class.getClassLoader().getResource("").toURI()
+					.getPath();
+			is = new FileInputStream(path
+					+ "/org/nb/resource/register/login.html");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}// 读取模块文件
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		try {
+			while ((tempStr = br.readLine()) != null)
+				htmlStr = htmlStr + tempStr;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			is.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try {
 			String userName = u;
 			String encryPass = p;
@@ -39,19 +67,18 @@ public class Active extends ResHelper {
 			params.put("password", encryPass);
 			NB_User nb_User = inb_User.matchUserFromActivity(params);
 			if (nb_User == null) {
-				operateLog.setId(Constant.ERRORCODE);
-				operateLog.setLog("验证失败");
+				// operateLog.setId(Constant.ERRORCODE);
+				// operateLog.setLog("验证失败");
 			} else if (new Date().compareTo(nb_User.getRegistertime()) > 24 * 60 * 60) {
-				operateLog.setId(Constant.ERRORCODE);
-				operateLog.setLog("已经过期");
+				// operateLog.setId(Constant.ERRORCODE);
+				// operateLog.setLog("已经过期");
 			}
 		} catch (Exception ex) {
 			logger.error("activity user error", ex);
-			operateLog.setId(Constant.ERRORCODE);
-			operateLog.setLog("服务器端异常");
+			// operateLog.setId(Constant.ERRORCODE);
+			// operateLog.setLog("服务器端异常");
 		}
 
-		return operateLog;
+		return htmlStr;
 	}
-
 }
