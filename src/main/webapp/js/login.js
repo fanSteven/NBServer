@@ -9,7 +9,7 @@
         var login_DataSource = new kendo.data.DataSource({
             transport:{
                 create:{
-                    url:"http://localhost:8080/NB/login",
+                    url:"http://localhost:8080/NBServer/service/login",
                     type:"POST",
                     contentType : "application/json; charset=UTF-8",
                     dataType:"json",
