@@ -48,7 +48,6 @@ public class ImageResource {
 	 * @return 文件名
 	 * @throws
 	 */
-	@SuppressWarnings("unchecked")
 	private String saveFile(HttpServletRequest request) {
 		String fileName = "";
 		try {

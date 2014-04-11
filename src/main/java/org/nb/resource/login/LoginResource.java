@@ -7,6 +7,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
+import org.nb.Encryp.EncrypSHA;
 import org.nb.db.DBDispture;
 import org.nb.mybatis.model.INB_User;
 import org.nb.mybatis.model.NB_User;
@@ -28,6 +29,7 @@ public class LoginResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public OperateLog getUserInfo(NB_User user) {
 		OperateLog operateLog = new OperateLog();
+		user.setPassword(new String(new EncrypSHA().encrypt(user.getPassword())));
 		try {
 			if (inb_User.findUserByName(user) == null) {
 				operateLog.setId(Constant.ERRORCODE);

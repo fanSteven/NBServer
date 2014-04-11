@@ -11,13 +11,12 @@ import org.apache.log4j.Logger;
 public class DBDispture {
 	private static Logger logger = Logger.getLogger(DBDispture.class);
 	private static SqlSessionFactory sqlSessionFactory = null;
+	private static SqlSession session = null;
 	private static String CONFIG_FILE_LOCATION = "mybatis.xml";
 	@SuppressWarnings("rawtypes")
 	private static final ThreadLocal threadLocal = new ThreadLocal();
 
-	@SuppressWarnings("unchecked")
 	public static synchronized SqlSession currentSession() {
-		SqlSession session = (SqlSession) threadLocal.get();
 		if (session == null) {
 			if (sqlSessionFactory == null) {
 				try {
@@ -29,7 +28,6 @@ public class DBDispture {
 				} catch (IOException e) {
 					logger.error("get sql session error", e);
 				}
-				threadLocal.set(session);
 			}
 		}
 
